@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* nền động */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 10%, transparent 10%);
+  background-size: 50px 50px;
+  animation: bgMove 12s linear infinite;
+}
+
+@keyframes bgMove {
+  to { transform: translate(-50px, -50px); }
+}
+
+/* card */
+.card {
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.4);
+  width: 320px;
+}
+
+/* text */
+h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  animation: fadeUp 1s ease forwards;
+}
+
+p {
+  opacity: 0.85;
+  margin-bottom: 25px;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+/* button */
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: black;
+  color: white;
+}
+
+/* animation */
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(40px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* glow */
+.glow {
+  text-shadow: 0 0 10px #fff, 0 0 20px #a18cd1, 0 0 30px #fbc2eb;
+}
+
+/* confetti */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  top: -10px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h1 class="glow" id="title">Hey you 👀</h1>
+  <p id="text">I have something for you...</p>
+  <button onclick="nextStep()">Click me ✨</button>
+</div>
+
+<script>
+let step = 0;
+
+function nextStep() {
+  const title = document.getElementById("title");
+  const text = document.getElementById("text");
+
+  step++;
+
+  if (step === 1) {
+    title.innerHTML = "Hello anh guộc";
+    text.innerHTML = "Tạo web chúc mừng sinh nhật anh guộc luôn nhê";
+    launchConfetti();
+  }
+
+  else if (step === 2) {
+    title.innerHTML = "Thật sự là chưa tiếp xúc nhiều đến nỗi thân như mấy bạn kia, nhưng mà không có ấn tượng xấu. Nay sinh nhật mk nè, chúc tất cả những gì tốt đẹp nhất, ăn ngon ngủ đủ. Biết là sắp thi nhưng mà cố hết sức, giữ gìn sức khỏe nha, cái gì nhiều quá cũng không tốt mà. Năm ngoái nghe nói mk cũng năm số 4 giống tui, chắc chắn là có chuyện này chuyện kia tới với mk, mà mk giỏi quá giỏi, handle mọi thứ rất ok.
+
+Cái đợt mk lọc friend xong đổi chủ đề rồi biểu tượng cảm xúc làm tui hơi hụt mood một xíu, nhưng mà thể hiện mk biết cái gì tốt cho mk, vô cùng ngưỡng mộ luôn í. Năm mới tuổi mới, ngày càng tốt đẹp hơn, được yêu thương nhiều hơn, biết yêu thương người khác nhiều hơn, học thật giỏi, biết yêu thương bản thân nữa, tích cực lên.
+
+Có lúc cũng không biết làm gì buồn lòng mk không, nhưng mà xin lỗi trước ha, bỏ qua cho tui nè. Hay không phải tui, ai cũng vậy, ai làm mình buồn thì bỏ hết đi mà sống cuộc sống mà mình đang có. Biết là mai mốt khó gì mà gặp lại, nên là chúc mk tìm được những người bạn thật sự biết quý trọng mk. Tuổi mới là phải sống tốt hơn, gặp được nhiều người tốt hơn.
+
+Còn mấy tháng nữa là hết gặp rồi, nên là cũng muốn có thật nhiều kỷ niệm nha.
+
+HAPPY NEW YEAR, HAPPY BIRTHDAY 🎂✨";
+    text.innerHTML = ""bạn không gặp ai đó một cách ngẫu nhiên. Sẽ luôn có một lý do, một bài học, hoặc đó là một phước lành " - tui tin là gặp mk là cái gì đó rất í nghĩa";
+  }
+
+  else if (step === 3) {
+    title.innerHTML = "gud bai";
+    text.innerHTML = "brightwin <3";
+  }
+}
+
+/* confetti */
+function launchConfetti() {
+  for (let i = 0; i < 60; i++) {
+    let conf = document.createElement("div");
+    conf.className = "confetti";
+    conf.style.left = Math.random() * window.innerWidth + "px";
+    conf.style.animationDuration = (2 + Math.random()*3) + "s";
+    conf.style.background = "hsl(" + Math.random()*360 + ",100%,70%)";
+    document.body.appendChild(conf);
+
+    setTimeout(() => conf.remove(), 5000);
+  }
+}
+</script>
+
+</body>
+</html>
