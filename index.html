@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <title>Birthday ✨</title>
@@ -42,30 +42,42 @@ body::before {
 .card {
   position: relative;
   background: rgba(255,255,255,0.1);
-  padding: 40px;
+  padding: 35px;
   border-radius: 25px;
   backdrop-filter: blur(15px);
   text-align: center;
   color: white;
   box-shadow: 0 10px 50px rgba(0,0,0,0.4);
-  width: 320px;
+  width: 340px;
+  animation: fadeUp 0.8s ease;
 }
 
 /* text */
 h1 {
-  font-size: 32px;
+  font-size: 26px;
   margin-bottom: 15px;
-  animation: fadeUp 1s ease forwards;
 }
 
 p {
-  opacity: 0.85;
-  margin-bottom: 25px;
-  animation: fadeUp 1.2s ease forwards;
+  font-size: 14px;
+  line-height: 1.6;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* scrollbar đẹp */
+p::-webkit-scrollbar {
+  width: 5px;
+}
+p::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
 }
 
 /* button */
 button {
+  margin-top: 20px;
   padding: 12px 25px;
   border: none;
   border-radius: 30px;
@@ -98,7 +110,6 @@ button:hover {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: white;
   top: -10px;
   animation: fall linear forwards;
 }
@@ -114,10 +125,10 @@ button:hover {
 
 <body>
 
-<div class="card" id="card">
+<div class="card">
   <h1 class="glow" id="title">Hey you 👀</h1>
-  <p id="text">I have something for you...</p>
-  <button onclick="nextStep()">Click me ✨</button>
+  <p id="text">Tui có cái này cho mk nè...</p>
+  <button id="btn" onclick="nextStep()">Click me ✨</button>
 </div>
 
 <script>
@@ -126,31 +137,51 @@ let step = 0;
 function nextStep() {
   const title = document.getElementById("title");
   const text = document.getElementById("text");
+  const btn = document.getElementById("btn");
 
   step++;
 
   if (step === 1) {
-    title.innerHTML = "Hello anh guộc";
-    text.innerHTML = "Tạo web chúc mừng sinh nhật anh guộc luôn nhê";
+    title.innerHTML = "HAPPY NEW YEAR";
+    text.innerHTML = "✨";
+    btn.innerHTML = "Ch hết ch hếtt";
     launchConfetti();
   }
 
   else if (step === 2) {
-    title.innerHTML = "Thật sự là chưa tiếp xúc nhiều đến nỗi thân như mấy bạn kia, nhưng mà không có ấn tượng xấu. Nay sinh nhật mk nè, chúc tất cả những gì tốt đẹp nhất, ăn ngon ngủ đủ. Biết là sắp thi nhưng mà cố hết sức, giữ gìn sức khỏe nha, cái gì nhiều quá cũng không tốt mà. Năm ngoái nghe nói mk cũng năm số 4 giống tui, chắc chắn là có chuyện này chuyện kia tới với mk, mà mk giỏi quá giỏi, handle mọi thứ rất ok.
+    title.innerHTML = "Gửi bứm nè!";
 
-Cái đợt mk lọc friend xong đổi chủ đề rồi biểu tượng cảm xúc làm tui hơi hụt mood một xíu, nhưng mà thể hiện mk biết cái gì tốt cho mk, vô cùng ngưỡng mộ luôn í. Năm mới tuổi mới, ngày càng tốt đẹp hơn, được yêu thương nhiều hơn, biết yêu thương người khác nhiều hơn, học thật giỏi, biết yêu thương bản thân nữa, tích cực lên.
+    text.innerHTML = `
+    NGUYỄN VŨ BẢO TRÂN GỬI MINH KHÔI Á NHA.<br><br>
 
-Có lúc cũng không biết làm gì buồn lòng mk không, nhưng mà xin lỗi trước ha, bỏ qua cho tui nè. Hay không phải tui, ai cũng vậy, ai làm mình buồn thì bỏ hết đi mà sống cuộc sống mà mình đang có. Biết là mai mốt khó gì mà gặp lại, nên là chúc mk tìm được những người bạn thật sự biết quý trọng mk. Tuổi mới là phải sống tốt hơn, gặp được nhiều người tốt hơn.
+    Nay sinh nhật mk nè, chúc tất cả những gì tốt đẹp nhất, ăn ngon ngủ đủ. Biết là sắp thi nhưng mà cố hết sức, giữ gìn sức khỏe nha, cái gì nhiều quá cũng không tốt mà.<br><br>
 
-Còn mấy tháng nữa là hết gặp rồi, nên là cũng muốn có thật nhiều kỷ niệm nha.
+    Nghe nói mk cũng năm số 4 giống tui, chắc chắn là có chuyện này chuyện kia tới với mk, mà mk giỏi quá giỏi, handle mọi thứ rất ok.<br><br>
 
-HAPPY NEW YEAR, HAPPY BIRTHDAY 🎂✨";
-    text.innerHTML = ""bạn không gặp ai đó một cách ngẫu nhiên. Sẽ luôn có một lý do, một bài học, hoặc đó là một phước lành " - tui tin là gặp mk là cái gì đó rất í nghĩa";
+    Cái đợt mk lọc friend xong đổi chủ đề rồi biểu tượng cảm xúc làm tui hơi hụt mood một xíu, nhưng mà thể hiện mk biết cái gì tốt cho mk, vô cùng ngưỡng mộ luôn í.<br><br>
+
+    Có lúc cũng không biết làm gì buồn lòng mk không, nhưng mà xin lỗi trước ha, bỏ qua cho tui nè.<br><br>
+
+    Ai làm mình buồn thì bỏ hết đi mà sống cuộc sống mà mình đang có.<br><br>
+
+    Biết là mai mốt khó gì mà gặp lại, nên là chúc mk tìm được những người bạn thật sự biết quý trọng mk.<br><br>
+
+    Tuổi mới là phải sống tốt hơn, gặp được nhiều người tốt hơn.<br><br>
+
+    Còn mấy tháng nữa là hết gặp rồi, nên là cũng muốn có thật nhiều kỷ niệm nha.<br><br>
+
+    <b>HAPPY NEW YEAR, HAPPY BIRTHDAY 🎂✨</b><br><br>
+
+    <i>"Không ai đến với mình là ngẫu nhiên – tui tin gặp mk là một điều siuuu có ý nghĩa."</i>
+    `;
+
+    btn.innerHTML = "Tự viết hết đó kco sài chatgpt đâu nha";
   }
 
   else if (step === 3) {
-    title.innerHTML = "gud bai";
-    text.innerHTML = "brightwin <3";
+    title.innerHTML = "bái bai";
+    text.innerHTML = "Anh guộc ngụ ngon";
+    btn.innerHTML = "Mơ thấy em guộc hoặc là brightwin na";
   }
 }
 
